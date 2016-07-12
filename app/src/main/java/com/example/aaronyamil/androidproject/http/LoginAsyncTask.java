@@ -2,10 +2,12 @@ package com.example.aaronyamil.androidproject.http;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import com.example.aaronyamil.androidproject.DashBoard;
 import com.example.aaronyamil.androidproject.MainActivity;
 import com.example.aaronyamil.androidproject.R;
 import com.example.aaronyamil.androidproject.model.User;
@@ -19,6 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginAsyncTask extends AsyncTask<User, Void, User> {
     private MainActivity activity;
+    private DashBoard DashActivity;
 
     public LoginAsyncTask(MainActivity activity) {
         this.activity = activity;
@@ -58,6 +61,8 @@ public class LoginAsyncTask extends AsyncTask<User, Void, User> {
             Toast.makeText(activity,
                     "Login successful, username: " + user.getUsername(),
                     Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(activity, DashBoard.class);
+            activity.startActivity(intent);
         }
     }
 

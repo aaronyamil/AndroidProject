@@ -1,5 +1,6 @@
 package com.example.aaronyamil.androidproject.http;
 
+import com.example.aaronyamil.androidproject.model.Post;
 import com.example.aaronyamil.androidproject.model.User;
 
 import java.util.List;
@@ -14,4 +15,8 @@ public interface PostsService {
     Call<List<User>> getAllUsers();
     @POST("/login.json")
     Call<User> login(@Body User user);
+    @GET("posts?user_id=1")
+    Call<List<Post>> getPosts();
+    @POST("posts?user_id=2")
+    Call<Post> create(@Body Post post);
 }

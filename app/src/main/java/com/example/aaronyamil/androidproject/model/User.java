@@ -1,5 +1,8 @@
 package com.example.aaronyamil.androidproject.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by AaronYamil on 7/8/2016.
  */
@@ -8,13 +11,18 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private String picture_url;
+    private List<Post> post;
 
     public User() {
         id = 0;
         username = "";
         email = "";
         password = "";
+        picture_url = "";
+        post = new ArrayList<Post>();
     }
+
 
     public int getId() {
         return id;
@@ -46,6 +54,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPictureUrl() {
+        return picture_url;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.picture_url = pictureUrl;
     }
 }
 
